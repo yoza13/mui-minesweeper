@@ -82,15 +82,7 @@ export const Minesweeper: React.FC = () => {
     >
       <Container className={classes.appContainer}>
         <Card raised={true} className={classes.contentBox}>
-          <Alert
-            variant="filled"
-            severity="warning"
-            className={classes.gameAlert}
-          >
-            <AlertTitle>Warning</AlertTitle>
-            This game uses right click for selection of mines and so it is not
-            mobile or tablet compatible.
-          </Alert>
+          
           <Card>
             <CardHeader
               title="Minesweeper"
