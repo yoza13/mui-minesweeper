@@ -12,8 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/yoza13/minesweeper-typescript.git"
   },
-  "main": "index",
-  "typings": "index",
+  "main": "index.js",
+  "typings": "App.d.ts",
   "keywords": [],
   "author": "Yash Oza",
   "license": "ISC",
