@@ -1,6 +1,6 @@
 {
   "name": "mui-minesweeper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Classic Minesweeper game created using typescript and MUI (formerly knows as material UI)",
   "homepage": "https://github.com/yoza13/mui-minesweeper.git#readme",
   "scripts": {
