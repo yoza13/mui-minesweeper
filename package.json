@@ -1,7 +1,8 @@
 {
   "name": "minesweeper-typescript",
   "version": "1.0.0",
-  "description": "",
+  "description": "Classic Minesweeper game that can be used as a standalone application and also as a npm package in your application",
+  "homepage": "https://www.projects.yashvoza.com/#/mine-sweeper",
   "scripts": {
     "build": "webpack --config webpack.config.js --mode production",
     "test": "jest",
@@ -20,7 +21,6 @@
   "bugs": {
     "url": "https://github.com/yoza13/minesweeper-typescript/issues"
   },
-  "homepage": "https://github.com/yoza13/minesweeper-typescript#readme",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
