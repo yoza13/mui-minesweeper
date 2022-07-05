@@ -1,1 +1,0 @@
-export { Minesweeper } from "./App";
