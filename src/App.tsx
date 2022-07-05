@@ -86,7 +86,7 @@ export const Minesweeper: React.FC = () => {
             <AlertTitle>Warning</AlertTitle>
             This game requires the use of right click for mines selection. So,
             it is not mobile or tablet compatible. So if you are using any of
-            those devices, please proceed with caution.
+            those devices, please proceed with caution
           </Alert>
           <Card>
             <CardHeader
