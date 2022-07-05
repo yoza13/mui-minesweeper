@@ -1,25 +1,27 @@
 {
-  "name": "minesweeper-typescript",
+  "name": "mui-minesweeper",
   "version": "1.0.0",
-  "description": "Classic Minesweeper game that can be used as a standalone application and also as a npm package in your application",
-  "homepage": "https://www.projects.yashvoza.com/#/mine-sweeper",
+  "description": "Classic Minesweeper game created using typescript and MUI (formerly knows as material UI)",
+  "homepage": "https://github.com/yoza13/mui-minesweeper.git#readme",
   "scripts": {
-    "build": "webpack --config webpack.config.js --mode production",
-    "test": "jest",
-    "eslint": "eslint src/**",
-    "start": "webpack serve  --hot --open"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc && cp package.json README.md ./dist"
   },
   "main": "./dist/App.js",
   "types": "./dist/App.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yoza13/minesweeper-typescript.git"
+    "url": "git+https://github.com/yoza13/mui-minesweeper.git"
   },
-  "keywords": [],
+  "keywords": [
+    "game",
+    "minesweeper",
+    "mui-game "
+  ],
   "author": "Yash Oza",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yoza13/minesweeper-typescript/issues"
+    "url": "https://github.com/yoza13/mui-minesweeper/issues"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",

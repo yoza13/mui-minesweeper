@@ -17,7 +17,17 @@ import { Skill } from "./components/Skill";
 import { Details } from "./components/Details";
 import { ButtonGroup } from "./components/ButtonGroup";
 
-export const Minesweeper: React.FC = () => {
+interface GameProps {
+  xFieldsCount?: number;
+  yFieldsCount?: number;
+  bombsCount?: number;
+}
+
+export const Minesweeper: React.FC<GameProps> = ({
+  xFieldsCount = 8,
+  yFieldsCount = 8,
+  bombsCount = 10,
+}) => {
   const classes = useStyles();
 
   const [seconds, setSeconds] = React.useState<number>(0);
@@ -78,6 +88,9 @@ export const Minesweeper: React.FC = () => {
         isActive,
         pauseButtonClicked,
         setPauseButtonClicked,
+        xFieldsCount,
+        yFieldsCount,
+        bombsCount,
       }}
     >
       <Container className={classes.appContainer}>
@@ -96,7 +109,7 @@ export const Minesweeper: React.FC = () => {
             <CardActions>
               <Button
                 size="small"
-                onClick={(event) => setAnchorEl(event.currentTarget)}
+                onClick={(event: any) => setAnchorEl(event.currentTarget)}
                 aria-describedby={"directions"}
               >
                 How To Play

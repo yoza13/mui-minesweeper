@@ -2,19 +2,8 @@ import * as React from "react";
 import { Box, Container } from "@mui/material";
 
 import GameContext from "../GameContext";
-import unTypedSettings from "../content/settings.json";
 import { getRandomInteger } from "./helper";
 import { Cell } from "./Cell";
-
-interface SettingsData {
-  [key: string]: {
-    level: string;
-    xFieldsCount: number;
-    yFieldsCount: number;
-    bombsCount: number;
-  };
-}
-const settings: SettingsData = unTypedSettings;
 
 interface cellClass {
   [key: string | number]: string;
@@ -31,6 +20,9 @@ export const Panel: React.FC = () => {
     setCellStates,
     toggle,
     skillLevel,
+    xFieldsCount,
+    yFieldsCount,
+    bombsCount,
   } = React.useContext(GameContext);
 
   const [boardValues, setBoardValues] = React.useState<string[][] | number[][]>(
@@ -72,8 +64,8 @@ export const Panel: React.FC = () => {
     y: number,
     boardValues: string[][] | number[][]
   ) => {
-    const rowsGrid = settings[skillLevel].xFieldsCount - 1;
-    const columnsGrid = settings[skillLevel].yFieldsCount - 1;
+    const rowsGrid = xFieldsCount - 1;
+    const columnsGrid = yFieldsCount - 1;
     const rows = [x - 1, x, x + 1];
     const cols = [y - 1, y, y + 1];
     let adjacentMines = 0;
@@ -93,9 +85,9 @@ export const Panel: React.FC = () => {
     return adjacentMines;
   };
   const boardSetup = () => {
-    const rows = settings[skillLevel].xFieldsCount;
-    const columns = settings[skillLevel].yFieldsCount;
-    const mines = settings[skillLevel].bombsCount;
+    const rows = xFieldsCount;
+    const columns = yFieldsCount;
+    const mines = bombsCount;
 
     const boardVal = createBoardVal(rows, columns);
     const cellStates = createBoard(rows, columns);
@@ -160,8 +152,7 @@ export const Panel: React.FC = () => {
   const checkAdjacentCells = (x: number, y: number) => {
     const rows = [x - 1, x, x + 1];
     const cols = [y - 1, y, y + 1];
-    const xFieldsCount = settings[skillLevel].xFieldsCount;
-    const yFieldsCount = settings[skillLevel].yFieldsCount;
+
     const updatedCellState = [...cellStates];
 
     rows.forEach((row) => {
@@ -197,9 +188,9 @@ export const Panel: React.FC = () => {
     setFlagsBoard(updatedFlagsBoard);
   };
   const checkForWin = () => {
-    const rows = settings["beginner"].xFieldsCount;
-    const columns = settings["beginner"].yFieldsCount;
-    const mines = settings["beginner"].bombsCount;
+    const rows = xFieldsCount;
+    const columns = yFieldsCount;
+    const mines = bombsCount;
     const updatedCells = [...cellStates];
     const revealedCells = updatedCells.reduce((cellsRevealed, row) => {
       const rowValue = row.reduce((acc, currentValue) => {

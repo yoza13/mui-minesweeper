@@ -12,21 +12,17 @@ import DoneIcon from "@mui/icons-material/Done";
 import FlagIcon from "@mui/icons-material/Flag";
 import SignalCellular0BarIcon from "@mui/icons-material/SignalCellular0Bar";
 import GameContext from "../GameContext";
-import unTypedSettings from "../content/settings.json";
-
-interface SettingsData {
-  [key: string]: {
-    level: string;
-    xFieldsCount: number;
-    yFieldsCount: number;
-    bombsCount: number;
-  };
-}
-const settings: SettingsData = unTypedSettings;
 
 export const Details: React.FC = () => {
-  const { seconds, flagsMarked, cellStates, skillLevel } =
-    React.useContext(GameContext);
+  const {
+    seconds,
+    flagsMarked,
+    cellStates,
+    skillLevel,
+    xFieldsCount,
+    yFieldsCount,
+    bombsCount,
+  } = React.useContext(GameContext);
   const [markedCells, setMarkedCells] = React.useState<number>(0);
 
   React.useEffect(() => {
@@ -67,9 +63,7 @@ export const Details: React.FC = () => {
               Opened Fields
             </Typography>
             <Typography variant="body1">{`${markedCells}/${
-              settings[skillLevel].xFieldsCount *
-                settings[skillLevel].yFieldsCount -
-              settings[skillLevel].bombsCount
+              xFieldsCount * yFieldsCount - bombsCount
             }`}</Typography>
           </Box>
           <Box>
@@ -83,7 +77,7 @@ export const Details: React.FC = () => {
             <Typography variant="caption" paragraph={true}>
               Mines Marked
             </Typography>
-            <Typography variant="body1">{`${flagsMarked}-${settings[skillLevel].bombsCount}`}</Typography>
+            <Typography variant="body1">{`${flagsMarked}-${bombsCount}`}</Typography>
           </Box>
           <Box>
             <IconButton
@@ -96,7 +90,7 @@ export const Details: React.FC = () => {
             <Typography variant="caption" paragraph={true}>
               Grid Size
             </Typography>
-            <Typography variant="body1">{`${settings[skillLevel].xFieldsCount}x${settings[skillLevel].yFieldsCount}`}</Typography>
+            <Typography variant="body1">{`${xFieldsCount}x${yFieldsCount}`}</Typography>
           </Box>
         </Stack>
       </Card>

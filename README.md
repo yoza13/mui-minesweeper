@@ -2,14 +2,28 @@
 
 #### created using Typescript and MUI-core (formerly called Material-UI)
 
-### Steps to clone and run -
+## Getting Started
 
-- git clone https://github.com/yoza13/minesweeper-typescript.git
-- npm install
-- npm run start
+Install this package:
 
-## This Repo can also be used as a module and can be installed in the cosumer repo through the GIT Url as
+```shell
+npm install mui-minesweeper
+```
 
-- git+https://github.com/yoza13/minesweeper-typescript.git
+Import the Counter component:
 
-and can be used as `<Minesweeper />`
+```js
+import { Minesweeper } from "mui-minesweeper";
+```
+
+You can then render the `Minesweeper` component like any other React component in JSX.
+
+### Props
+
+###### This module takes below props for the execution
+
+| Name         | Type   | optional | defaultValue |
+| ------------ | ------ | -------- | ------------ |
+| xFieldsCount | number | yes      | 8            |
+| yFieldsCount | number | yes      | 8            |
+| bombCount    | number | yes      | 10           |

@@ -1,23 +1,13 @@
 {
   "compilerOptions": {
+    "strict": true,
     "jsx": "react",
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "outDir": "./dist/",
-    "preserveConstEnums": true,
-    "removeComments": true,
-    "sourceMap": true,
-    "target": "es5",
-    "typeRoots": ["node_modules/@types", "src/types"],
-    "resolveJsonModule": true,
+    "declaration": true,
     "esModuleInterop": true,
-    "declaration": true
+    "outDir": "dist",
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "node"
   },
-  "include": ["src/index.tsx", "declare.d.ts"],
-  "awesomeTypescriptLoaderOptions": {
-    "useWebpackText": true,
-    "useTranspileModule": true,
-    "doTypeCheck": true,
-    "forkChecker": true
-  }
+  "include": ["src"]
 }

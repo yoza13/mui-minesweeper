@@ -17,6 +17,9 @@ interface GameContext {
     isActive: boolean;
     pauseButtonClicked: boolean;
     setPauseButtonClicked: (value: boolean) => void;
+    xFieldsCount: number;
+    yFieldsCount: number;
+    bombsCount: number;
 }
 declare const GameContext: import("react").Context<GameContext>;
 export declare const GameContextProvider: import("react").Provider<GameContext>;
