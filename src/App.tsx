@@ -17,17 +17,7 @@ import { Skill } from "./components/Skill";
 import { Details } from "./components/Details";
 import { ButtonGroup } from "./components/ButtonGroup";
 
-interface GameProps {
-  xFieldsCount?: number;
-  yFieldsCount?: number;
-  bombsCount?: number;
-}
-
-export const Minesweeper: React.FC<GameProps> = ({
-  xFieldsCount = 8,
-  yFieldsCount = 8,
-  bombsCount = 10,
-}) => {
+export const Minesweeper: React.FC = () => {
   const classes = useStyles();
 
   const [seconds, setSeconds] = React.useState<number>(0);
@@ -88,9 +78,6 @@ export const Minesweeper: React.FC<GameProps> = ({
         isActive,
         pauseButtonClicked,
         setPauseButtonClicked,
-        xFieldsCount,
-        yFieldsCount,
-        bombsCount,
       }}
     >
       <Container className={classes.appContainer}>

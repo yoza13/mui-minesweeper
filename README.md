@@ -18,12 +18,13 @@ import { Minesweeper } from "mui-minesweeper";
 
 You can then render the `Minesweeper` component like any other React component in JSX.
 
-### Props
+Rendering this module in your application will also enable you to have a capability to select the difficulty level as below
 
-###### This module takes below props for the execution
+| Skill        | xFieldsCount              | yFieldCount               | bombCount                |
+| ------------ | ------------------------- | ------------------------- | ------------------------ |
+|              | Number of boxes in x-axis | Number of boxes in y-axis | Number of bombs on board |
+| Beginner     | 8                         | 8                         | 10                       |
+| Intermediate | 16                        | 16                        | 40                       |
+| Expert       | 30                        | 16                        | 99                       |
 
-| Name         | Type   | optional | defaultValue |
-| ------------ | ------ | -------- | ------------ |
-| xFieldsCount | number | yes      | 8            |
-| yFieldsCount | number | yes      | 8            |
-| bombCount    | number | yes      | 10           |
+##### Bombs selection on board is completely random and every new page load or render of the component will have bombs in different places

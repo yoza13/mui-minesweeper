@@ -4,6 +4,7 @@ import { Box, Container } from "@mui/material";
 import GameContext from "../GameContext";
 import { getRandomInteger } from "./helper";
 import { Cell } from "./Cell";
+import { getFieldDetails } from "./helper";
 
 interface cellClass {
   [key: string | number]: string;
@@ -20,10 +21,8 @@ export const Panel: React.FC = () => {
     setCellStates,
     toggle,
     skillLevel,
-    xFieldsCount,
-    yFieldsCount,
-    bombsCount,
   } = React.useContext(GameContext);
+  const fieldDetails = getFieldDetails(skillLevel);
 
   const [boardValues, setBoardValues] = React.useState<string[][] | number[][]>(
     []
@@ -64,8 +63,8 @@ export const Panel: React.FC = () => {
     y: number,
     boardValues: string[][] | number[][]
   ) => {
-    const rowsGrid = xFieldsCount - 1;
-    const columnsGrid = yFieldsCount - 1;
+    const rowsGrid = fieldDetails.xFieldsCount - 1;
+    const columnsGrid = fieldDetails.yFieldsCount - 1;
     const rows = [x - 1, x, x + 1];
     const cols = [y - 1, y, y + 1];
     let adjacentMines = 0;
@@ -85,9 +84,9 @@ export const Panel: React.FC = () => {
     return adjacentMines;
   };
   const boardSetup = () => {
-    const rows = xFieldsCount;
-    const columns = yFieldsCount;
-    const mines = bombsCount;
+    const rows = fieldDetails.xFieldsCount;
+    const columns = fieldDetails.yFieldsCount;
+    const mines = fieldDetails.bombsCount;
 
     const boardVal = createBoardVal(rows, columns);
     const cellStates = createBoard(rows, columns);
@@ -156,9 +155,9 @@ export const Panel: React.FC = () => {
     const updatedCellState = [...cellStates];
 
     rows.forEach((row) => {
-      if (row >= 0 && row <= xFieldsCount - 1) {
+      if (row >= 0 && row <= fieldDetails.xFieldsCount - 1) {
         cols.forEach((col) => {
-          if (col >= 0 && col <= yFieldsCount - 1) {
+          if (col >= 0 && col <= fieldDetails.yFieldsCount - 1) {
             if (
               cellStates[row][col] === false &&
               flagsBoard[row][col] === false
@@ -182,15 +181,15 @@ export const Panel: React.FC = () => {
     minePositions.forEach((position) => {
       const x = position.split(",")[0];
       const y = position.split(",")[1];
-      //flagsBoard[x][y] = true;
+      // /flagsBoard[x][y] = true;
     });
     setFlagsMarked(minePositions.length);
     setFlagsBoard(updatedFlagsBoard);
   };
   const checkForWin = () => {
-    const rows = xFieldsCount;
-    const columns = yFieldsCount;
-    const mines = bombsCount;
+    const rows = fieldDetails.xFieldsCount;
+    const columns = fieldDetails.yFieldsCount;
+    const mines = fieldDetails.bombsCount;
     const updatedCells = [...cellStates];
     const revealedCells = updatedCells.reduce((cellsRevealed, row) => {
       const rowValue = row.reduce((acc, currentValue) => {

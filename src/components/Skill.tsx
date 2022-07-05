@@ -3,26 +3,7 @@ import { Box, Button, Typography } from "@mui/material";
 import GameContext from "../GameContext";
 
 export const Skill: React.FC = () => {
-  const settings = [
-    {
-      level: "beginner",
-      xFieldsCount: 8,
-      yFieldsCount: 8,
-      bombsCount: 10,
-    },
-    {
-      level: "intermediate",
-      xFieldsCount: 16,
-      yFieldsCount: 16,
-      bombsCount: 40,
-    },
-    {
-      level: "expert",
-      xFieldsCount: 30,
-      yFieldsCount: 16,
-      bombsCount: 99,
-    },
-  ];
+  const settings = ["beginner", "intermediate", "expert"];
   const { skillLevel, setSkillLevel, resetTimer } =
     React.useContext(GameContext);
   return (
@@ -31,16 +12,14 @@ export const Skill: React.FC = () => {
       {settings.map((set) => {
         return (
           <Button
-            key={set.level}
-            variant={
-              skillLevel.toLowerCase() === set.level ? "outlined" : "text"
-            }
+            key={set}
+            variant={skillLevel.toLowerCase() === set ? "outlined" : "text"}
             onClick={() => {
               resetTimer();
-              setSkillLevel(set.level);
+              setSkillLevel(set);
             }}
           >
-            {set.level}
+            {set}
           </Button>
         );
       })}

@@ -18,9 +18,6 @@ interface GameContext {
   isActive: boolean;
   pauseButtonClicked: boolean;
   setPauseButtonClicked: (value: boolean) => void;
-  xFieldsCount: number;
-  yFieldsCount: number;
-  bombsCount: number;
 }
 
 const GameContext = createContext<GameContext>({} as GameContext);

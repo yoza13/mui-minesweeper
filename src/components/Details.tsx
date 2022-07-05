@@ -12,19 +12,13 @@ import DoneIcon from "@mui/icons-material/Done";
 import FlagIcon from "@mui/icons-material/Flag";
 import SignalCellular0BarIcon from "@mui/icons-material/SignalCellular0Bar";
 import GameContext from "../GameContext";
+import { getFieldDetails } from "./helper";
 
 export const Details: React.FC = () => {
-  const {
-    seconds,
-    flagsMarked,
-    cellStates,
-    skillLevel,
-    xFieldsCount,
-    yFieldsCount,
-    bombsCount,
-  } = React.useContext(GameContext);
+  const { seconds, flagsMarked, cellStates, skillLevel } =
+    React.useContext(GameContext);
   const [markedCells, setMarkedCells] = React.useState<number>(0);
-
+  const fieldDetails = getFieldDetails(skillLevel);
   React.useEffect(() => {
     let i = 0;
     cellStates.forEach((row) => {
@@ -63,7 +57,8 @@ export const Details: React.FC = () => {
               Opened Fields
             </Typography>
             <Typography variant="body1">{`${markedCells}/${
-              xFieldsCount * yFieldsCount - bombsCount
+              fieldDetails.xFieldsCount * fieldDetails.yFieldsCount -
+              fieldDetails.bombsCount
             }`}</Typography>
           </Box>
           <Box>
@@ -77,7 +72,7 @@ export const Details: React.FC = () => {
             <Typography variant="caption" paragraph={true}>
               Mines Marked
             </Typography>
-            <Typography variant="body1">{`${flagsMarked}-${bombsCount}`}</Typography>
+            <Typography variant="body1">{`${flagsMarked}-${fieldDetails.bombsCount}`}</Typography>
           </Box>
           <Box>
             <IconButton
@@ -90,7 +85,7 @@ export const Details: React.FC = () => {
             <Typography variant="caption" paragraph={true}>
               Grid Size
             </Typography>
-            <Typography variant="body1">{`${xFieldsCount}x${yFieldsCount}`}</Typography>
+            <Typography variant="body1">{`${fieldDetails.xFieldsCount}x${fieldDetails.yFieldsCount}`}</Typography>
           </Box>
         </Stack>
       </Card>
