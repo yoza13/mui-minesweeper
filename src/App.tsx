@@ -91,7 +91,7 @@ export const Minesweeper: React.FC = () => {
           <Card>
             <CardHeader
               title="Minesweeper"
-              subheader="Select the skill level and continue to play the game"
+              subheader="Select the skill level and continue to play the game."
             ></CardHeader>
             <CardActions>
               <Button
