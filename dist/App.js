@@ -89,7 +89,7 @@ var Minesweeper = function () {
             React.createElement(material_1.Card, { raised: true, className: classes.contentBox },
                 React.createElement(material_1.Alert, { severity: "warning", className: classes.gameAlert },
                     React.createElement(material_1.AlertTitle, null, "Warning"),
-                    "This game requires the use of right click for mines selection. So, it is not mobile or tablet compatible. So if you are using any of those devices, please proceed with caution"),
+                    "This game requires the use of right click for mines selection. So, it is not mobile or tablet compatible. So if you are using any of those devices, please proceed with caution."),
                 React.createElement(material_1.Card, null,
                     React.createElement(material_1.CardHeader, { title: "Minesweeper", subheader: "Select the skill level and continue to play the game" }),
                     React.createElement(material_1.CardActions, null,
